@@ -1,10 +1,10 @@
 html, body, #root {
-    font-family: Poppins;
+    font-family: Roboto, sans-serif;
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
-    color: #FFFFFF;
+    color: #E7E9EA;
     background: #000000;
 }
 .home-page {
@@ -13,6 +13,8 @@ html, body, #root {
     justify-content: center;
     height: 100vh;
 }
+
+/* ------------Navigation--------- */
 .nav-column {
     display: flex;
     flex-direction: column;
@@ -20,29 +22,53 @@ html, body, #root {
     width: 100%;
     height: 100%;
     padding: 0 10px;
-    border: 1px solid rgba(174, 173, 173, 0.3);
+    overflow: auto;
 }
 .nav-icon {
-    height: 100%;
+    height: 26px;
 
 }
 .nav-button {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
     color: #FFFFFF;
     padding: 12px;
     border-radius: 30px;
 }
 .nav-button:hover {
-    background-color: dimgrey;
+    background-color: #212327;
+}
+.tweet-button {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.8em 1.5em 0.8em 1.2em;
+    color: white;
+    background: linear-gradient(0deg, #4d36d0 0%, #8474fe 100%);
+    box-shadow: 0 0.7em 1.5em -0.5em #4d36d0be;
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 20em;
+    text-decoration: none;
+    justify-content: center;
+}
+.tweet-button:hover {
+    opacity: 0.9;
 }
 .nav-link {
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding: 12px;
+    padding: 4px 0;
     font-size: 20px;
     text-decoration: none;
 
 }
+/* -------Right Two Colums---------- */
 .content {
     display: flex;
     flex-direction: row;
@@ -52,21 +78,88 @@ html, body, #root {
     height: 100%;
     width: 100%;
 }
+/* ----------Middle Column--------- */
 .explore-column {
     display: flex;
     flex-direction: column;
     max-width: 600px;
     width: 100%;
     height: 100%;
-    border: 1px solid rgba(174, 173, 173, 0.3);
+    overflow: auto;
+    border: 1px solid #2F3336;
 }
+.explore-header {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 0, 0, 0.80);
+    backdrop-filter: blur(9.7px);
+}
+.explore-header > span {
+    margin: 10px 0;
+}
+.post {
+    border: 1px solid #2F3336;
+    padding:  0 16px;
+}
+
+/* -------third column---------- */
 .search-column {
     display: flex;
     flex-direction: column;
     max-width: 350px;
     width: 100%;
     height: 100%;
-    border: 1px solid rgba(174, 173, 173, 0.3);
 }
 
+.wrapper {
+    width: 100%;
+    max-width: 31.25rem;
+    margin: 6rem auto;
+  }
+  
+  .label {
+    font-size: .625rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: +1.3px;
+    margin-bottom: 1rem;
+  }
+  
+  .searchBar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  #searchQueryInput {
+    width: 100%;
+    height: 2.8rem;
+    color: #71767A;
+    /* background: #71767A; */
+    background: #212327;
+    outline: none;
+    border: none;
+    border-radius: 1.625rem;
+    padding: 0 3.5rem 0 1.5rem;
+    font-size: 1rem;
+  }
+  #searchQueryInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #8474fe;
+  }
+  
+  #searchQuerySubmit {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+    color: #71767A;
+  }
 
+
+  #searchQuerySubmit:hover {
+    cursor: pointer;
+  }
