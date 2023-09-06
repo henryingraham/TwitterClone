@@ -17,8 +17,7 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
-  const [currentName, setCurrentName] = useState();
-  const [userPhotoURL, setUserPhotoURL] = useState(null);
+
   // Firebase takes time to communicate with backend, user is null
   // loading tracks this period of comms
   const [loading, setLoading] = useState(true);
@@ -38,22 +37,15 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setCurrentName(user.displayName ? user.displayName : user.email);
-        console.log(user.photoURL);
-        setUserPhotoURL(user.photoURL);
-      }
       setCurrentUser(user);
       //sets to false upon loading
-      setLoading(false);
+      setLoading(false); 
     });
     return unsubscribe;
   }, []);
 
   const value = {
     currentUser,
-    currentName,
-    userPhotoURL,
     signup,
     login,
     logout,

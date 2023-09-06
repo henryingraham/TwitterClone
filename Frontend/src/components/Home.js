@@ -1,14 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import Navigation from './Navigation';
 import Explore from './Explore';
 import '../styles.css';
 import SearchIcon from '@mui/icons-material/Search';
+import { useAuth } from '../context/AuthContext';
 
 
 export default function Home() {
+  const [error, setError] = useState("")
+  const { currentUser, logout } = useAuth()
+  const navigate = useNavigate();
+  
+  async function handleLogout() {
+    setError('');
+    try {
+      await logout();
+      navigate('/login');
+    } catch (error) {
+      setError('Failed to log out');
+    }
+  }
+
   return (
     <div className='home-page'>
-      <div className='nav-column'>
+      hi
+      {/* <div className='nav-column'>
         <Navigation />
       </div>
       <div className='content'>
@@ -23,7 +40,7 @@ export default function Home() {
                 </button>
             </div>
         </div>
-    </div>
+      </div> */}
     </div>
   )
 }

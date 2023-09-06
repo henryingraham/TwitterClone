@@ -4,12 +4,11 @@ import { useAuth } from '../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
-  // useRef is used to access the value of the input fields without constant re-renders
   const emailRef = useRef();
   const passwordRef = useRef();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const { login, currentUser } = useAuth();
+  const { login } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -20,13 +19,16 @@ export default function Login() {
       setError('');
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate('/');
+      // navigate('/Home');
+      console.log('success');
     } catch (error) {
       setError('Failed to log in');
+      console.log('error');
     }
 
     setLoading(false);
   }
+
 
   return (
     <div
@@ -49,16 +51,16 @@ export default function Login() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100 mt-4" type="submit">
+            <Button disabled={loading} className="w-100 mt-4" type="submit" onClick={handleSubmit}>
               Log In
             </Button>
           </Form>
           <div className="w-100 text-center mt-3">
-            <Link to="/forgot-password">Forgot Password?</Link>
+            Forgot Password?
           </div>
         </Card.Body>
         <div className="text-center d-flex" style={{ marginBottom: '-32px' }}>
-          Need an account? <Link to="/signup">Sign Up</Link>
+          Need an account? Sign Up
         </div>
       </Card>
     </div>
